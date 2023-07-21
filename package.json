@@ -1,0 +1,48 @@
+{
+  "name": "open-in-repository-button",
+  "displayName": "open-in-repository-button",
+  "description": "open the git repository button",
+  "publisher": "wChenonly",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "icon": "res/icon.png",
+  "author": "wChenonly",
+  "license": "MIT",
+  "homepage": "https://github.com/wChenonly/vscode-open-in-repository-button#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wChenonly/vscode-open-in-repository-button"
+  },
+  "bugs": {
+    "url": "https://github.com/wChenonly/vscode-open-in-repository-button/issues"
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "build": "vsce package",
+    "publish": "vsce package && vsce publish",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "20.4.2",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "@vscode/vsce": "^2.19.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6",
+    "yarn": "^1.22.19"
+  }
+}
