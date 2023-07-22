@@ -6,7 +6,7 @@ const node_child_process_1 = require("node:child_process");
 function activate(context) {
     const statusBar = vscode_1.window.createStatusBarItem(vscode_1.StatusBarAlignment.Left, 0);
     statusBar.command = "openBrowser";
-    statusBar.text = "$(github)";
+    statusBar.text = "$(ports-open-browser-icon)";
     statusBar.tooltip = "Open Browser";
     statusBar.show();
     let disposable = vscode_1.commands.registerCommand("openBrowser", async () => {

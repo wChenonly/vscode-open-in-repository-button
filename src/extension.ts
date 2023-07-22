@@ -12,7 +12,7 @@ import { exec } from "node:child_process";
 export function activate(context: ExtensionContext) {
   const statusBar = window.createStatusBarItem(StatusBarAlignment.Left, 0);
   statusBar.command = "openBrowser";
-  statusBar.text = "$(github)";
+  statusBar.text = "$(ports-open-browser-icon)";
   statusBar.tooltip = "Open Browser";
   statusBar.show();
 
