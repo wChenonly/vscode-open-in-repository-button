@@ -29,4 +29,3 @@ function activate(context) {
 exports.activate = activate;
 function deactivate() { }
 exports.deactivate = deactivate;
-//# sourceMappingURL=extension.js.map
