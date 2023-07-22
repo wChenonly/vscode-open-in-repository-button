@@ -79,4 +79,4 @@ dist
 
 *.lerna_backup
 
-*.visx
+*.vsix
