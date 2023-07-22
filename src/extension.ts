@@ -30,8 +30,8 @@ export function activate(context: ExtensionContext) {
         const gitUrl = stdout
           .replace(".git", "")
           .replace(".com:", ".com/")
-          .replace("git@", "https://");
-
+          .replace("git@", "https://")
+          .trim();
         env.openExternal(Uri.parse(gitUrl));
       }
     );

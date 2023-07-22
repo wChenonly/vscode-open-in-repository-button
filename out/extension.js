@@ -19,7 +19,8 @@ function activate(context) {
             const gitUrl = stdout
                 .replace(".git", "")
                 .replace(".com:", ".com/")
-                .replace("git@", "https://");
+                .replace("git@", "https://")
+                .trim();
             vscode_1.env.openExternal(vscode_1.Uri.parse(gitUrl));
         });
     });
