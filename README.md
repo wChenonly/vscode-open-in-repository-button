@@ -4,7 +4,7 @@
 
 ## Usage
 
-vscode search for open-in-repository-button
+vscode search for `open-in-repository-button`
 
 ![Alt text](res/image.png)
 
