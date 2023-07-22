@@ -28,7 +28,7 @@
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "build": "vsce package",
-    "publish": "vsce package && vsce publish",
+    "publish": "bumpp && vsce package && vsce publish",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
@@ -41,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "@vscode/vsce": "^2.19.0",
+    "bumpp": "^9.1.1",
     "eslint": "^8.45.0",
     "typescript": "^5.1.6",
     "yarn": "^1.22.19"
