@@ -10,4 +10,8 @@ vscode search for `open-in-repository-button`
 
 - Theoretically support all git repositories
 
+## Thanks
+
+Great thanks to [@antfu](https://github.com/antfu) The project of [vscode-open-in-github-button](https://github.com/antfu/vscode-open-in-github-button)
+
 ## enjoy it 🎉🎉🎉
