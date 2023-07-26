@@ -23,7 +23,7 @@ export function activate(context: ExtensionContext) {
       `cd ${projectRoot} && git config --get remote.origin.url`,
       (err, stdout) => {
         if (err) {
-          window.showInformationMessage(err.message);
+          window.showErrorMessage(err.message);
           return;
         }
 

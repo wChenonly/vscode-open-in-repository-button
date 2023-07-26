@@ -13,7 +13,7 @@ function activate(context) {
         const projectRoot = vscode_1.workspace.workspaceFolders[0].uri.path;
         (0, node_child_process_1.exec)(`cd ${projectRoot} && git config --get remote.origin.url`, (err, stdout) => {
             if (err) {
-                vscode_1.window.showInformationMessage(err.message);
+                vscode_1.window.showErrorMessage(err.message);
                 return;
             }
             const gitUrl = stdout
