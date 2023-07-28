@@ -3,7 +3,7 @@
   "displayName": "open-in-repository-button",
   "description": "open the git repository button",
   "publisher": "wChenonly",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -40,7 +40,7 @@
     "@types/vscode": "^1.80.0",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
-    "@vscode/vsce": "^2.19.0",
+    "@vscode/vsce": "^2.20.0",
     "bumpp": "^9.1.1",
     "eslint": "^8.45.0",
     "typescript": "^5.1.6",
