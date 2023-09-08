@@ -3,7 +3,7 @@
   "displayName": "open-in-repository-button",
   "description": "open the git repository button",
   "publisher": "wChenonly",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.80.0"
   },
