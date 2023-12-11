@@ -1,43 +1,30 @@
-import {
-  StatusBarAlignment,
-  window,
-  ExtensionContext,
-  commands,
-  workspace,
-  env,
-  Uri,
-} from "vscode";
-import { exec } from "node:child_process";
+import { StatusBarAlignment, window, ExtensionContext, commands, workspace, env, Uri } from 'vscode'
+import { exec } from 'node:child_process'
 
 export function activate(context: ExtensionContext) {
-  const statusBar = window.createStatusBarItem(StatusBarAlignment.Left, 0);
-  statusBar.command = "openBrowser";
-  statusBar.text = "$(ports-open-browser-icon)";
-  statusBar.tooltip = "Open Browser";
-  statusBar.show();
+  if (!workspace.workspaceFolders || workspace.workspaceFolders.length === 0) return
 
-  let disposable = commands.registerCommand("openBrowser", async () => {
-    const projectRoot = workspace.workspaceFolders![0].uri.path;
+  const statusBar = window.createStatusBarItem(StatusBarAlignment.Left, 0)
+  statusBar.command = 'openBrowser'
+  statusBar.text = '$(ports-open-browser-icon)'
+  statusBar.tooltip = 'Open Browser'
+  statusBar.show()
 
-    exec(
-      `cd ${projectRoot} && git config --get remote.origin.url`,
-      (err, stdout) => {
-        if (err) {
-          window.showErrorMessage(err.message);
-          return;
-        }
+  let disposable = commands.registerCommand('openBrowser', async () => {
+    const projectRoot = workspace.workspaceFolders![0].uri.path
 
-        const gitUrl = stdout
-          .replace(".git", "")
-          .replace(".com:", ".com/")
-          .replace("git@", "https://")
-          .trim();
-        env.openExternal(Uri.parse(gitUrl));
+    exec(`cd ${projectRoot} && git config --get remote.origin.url`, (err, stdout) => {
+      if (err) {
+        window.showErrorMessage(err.message)
+        return
       }
-    );
-  });
 
-  context.subscriptions.push(disposable);
+      const gitUrl = stdout.replace('.git', '').replace('.com:', '.com/').replace('git@', 'https://').trim()
+      env.openExternal(Uri.parse(gitUrl))
+    })
+  })
+
+  context.subscriptions.push(disposable)
 }
 
 export function deactivate() {}
