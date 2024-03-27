@@ -1,0 +1,8 @@
+node_modules
+*.md
+lib
+es
+.github
+bin
+instructions
+pnpm-lock.yaml

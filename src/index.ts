@@ -1,8 +1,9 @@
-import { StatusBarAlignment, window, ExtensionContext, commands, workspace, env, Uri } from 'vscode'
 import { exec } from 'node:child_process'
+import { type ExtensionContext, StatusBarAlignment, Uri, commands, env, window, workspace } from 'vscode'
 
 export function activate(context: ExtensionContext) {
-  if (!workspace.workspaceFolders || workspace.workspaceFolders.length === 0) return
+  if (!workspace.workspaceFolders || workspace.workspaceFolders.length === 0)
+    return
 
   const statusBar = window.createStatusBarItem(StatusBarAlignment.Left, 0)
   statusBar.command = 'openBrowser'
@@ -10,10 +11,10 @@ export function activate(context: ExtensionContext) {
   statusBar.tooltip = 'Open Browser'
   statusBar.show()
 
-  let disposable = commands.registerCommand('openBrowser', async () => {
-    const projectRoot = workspace.workspaceFolders![0].uri.path
+  const disposable = commands.registerCommand('openBrowser', async () => {
+    const projectRoot = workspace.workspaceFolders?.[0].uri.path
 
-    exec(`cd ${projectRoot} && git config --get remote.origin.url`, (err, stdout) => {
+    exec(`git -C ${projectRoot} config --get remote.origin.url`, (err, stdout) => {
       if (err) {
         window.showErrorMessage(err.message)
         return
