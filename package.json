@@ -3,7 +3,7 @@
   "name": "open-in-repository-button",
   "displayName": "open-in-repository-button",
   "type": "module",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "packageManager": "pnpm@8.15.5",
   "description": "open the git repository button",
   "author": "wChenonly",
