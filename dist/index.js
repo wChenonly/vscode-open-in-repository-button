@@ -24,8 +24,8 @@ __export(src_exports, {
   deactivate: () => deactivate
 });
 module.exports = __toCommonJS(src_exports);
-var import_vscode = require("vscode");
 var import_node_child_process = require("child_process");
+var import_vscode = require("vscode");
 function activate(context) {
   if (!import_vscode.workspace.workspaceFolders || import_vscode.workspace.workspaceFolders.length === 0)
     return;

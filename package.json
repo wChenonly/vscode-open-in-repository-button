@@ -2,7 +2,7 @@
   "publisher": "wChenonly",
   "name": "open-in-repository-button",
   "displayName": "open-in-repository-button",
-  "type": "module",
+  "type": "commonjs",
   "version": "0.0.11",
   "packageManager": "pnpm@8.15.5",
   "description": "open the git repository button",
@@ -19,7 +19,7 @@
   "categories": [
     "Other"
   ],
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "icon": "res/icon.png",
   "engines": {
     "vscode": "^1.87.0"
