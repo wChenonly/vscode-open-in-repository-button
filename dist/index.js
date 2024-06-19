@@ -37,14 +37,45 @@ function activate(context) {
   const disposable = import_vscode.commands.registerCommand("openBrowser", async () => {
     var _a;
     const projectRoot = (_a = import_vscode.workspace.workspaceFolders) == null ? void 0 : _a[0].uri.path;
-    (0, import_node_child_process.exec)(`git -C ${projectRoot} config --get remote.origin.url`, (err, stdout) => {
-      if (err) {
-        import_vscode.window.showErrorMessage(err.message);
-        return;
+    (0, import_node_child_process.exec)(
+      `git -C ${projectRoot} config --get remote.origin.url`,
+      (err, stdout) => {
+        if (err) {
+          import_vscode.window.showErrorMessage(`Failed to get remote URL: ${err.message}`);
+          return;
+        }
+        let gitUrl = stdout.replace(".git", "").replace(".com:", ".com/").replace("git@", "https://").trim();
+        (0, import_node_child_process.exec)(
+          `git -C ${projectRoot} branch --show-current`,
+          (err2, branchName) => {
+            if (err2) {
+              import_vscode.window.showErrorMessage(
+                `Failed to get current branch: ${err2.message}`
+              );
+              return;
+            }
+            branchName = branchName.trim();
+            if (branchName === "main" || branchName === "master") {
+              import_vscode.env.openExternal(import_vscode.Uri.parse(gitUrl));
+              return;
+            }
+            (0, import_node_child_process.exec)(
+              `git -C ${projectRoot} ls-remote --heads origin ${branchName}`,
+              (err3, stdout2) => {
+                if (err3) {
+                  import_vscode.window.showErrorMessage(
+                    `Failed to check remote branch: ${err3.message}`
+                  );
+                  return;
+                }
+                if (stdout2) gitUrl = `${gitUrl}/tree/${branchName}`;
+                import_vscode.env.openExternal(import_vscode.Uri.parse(gitUrl));
+              }
+            );
+          }
+        );
       }
-      const gitUrl = stdout.replace(".git", "").replace(".com:", ".com/").replace("git@", "https://").trim();
-      import_vscode.env.openExternal(import_vscode.Uri.parse(gitUrl));
-    });
+    );
   });
   context.subscriptions.push(disposable);
 }
