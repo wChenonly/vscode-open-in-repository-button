@@ -3,7 +3,7 @@
   "name": "open-in-repository-button",
   "displayName": "open-in-repository-button",
   "type": "commonjs",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "packageManager": "pnpm@9.4.0",
   "description": "open the git repository button",
   "author": "wChenonly",
