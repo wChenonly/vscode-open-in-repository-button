@@ -32,7 +32,7 @@ export function activate(context: ExtensionContext) {
 
         let gitUrl = stdout
           .replace('.git', '')
-          .replace('.com:', '.com/')
+          .replace(':', '/')
           .replace('git@', 'https://')
           .trim()
 
