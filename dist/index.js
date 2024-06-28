@@ -75,7 +75,8 @@ function activate(context) {
                   );
                   return;
                 }
-                if (stdout2) gitUrl = `${gitUrl}/tree/${branchName}`;
+                if (stdout2)
+                  gitUrl = `${gitUrl}/tree/${branchName}`;
                 import_vscode.env.openExternal(import_vscode.Uri.parse(gitUrl));
               }
             );
