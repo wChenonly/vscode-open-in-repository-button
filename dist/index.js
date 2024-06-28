@@ -26,6 +26,13 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 var import_node_child_process = require("child_process");
 var import_vscode = require("vscode");
+
+// src/utils.ts
+function normalUrl(url) {
+  return url.trim().replace(/\.git$/, "").replace(/^git@([^:]+):/, "https://$1/");
+}
+
+// src/index.ts
 function activate(context) {
   if (!import_vscode.workspace.workspaceFolders || import_vscode.workspace.workspaceFolders.length === 0)
     return;
@@ -44,7 +51,7 @@ function activate(context) {
           import_vscode.window.showErrorMessage(`Failed to get remote URL: ${err.message}`);
           return;
         }
-        let gitUrl = stdout.replace(".git", "").replace(".com:", ".com/").replace("git@", "https://").trim();
+        let gitUrl = normalUrl(stdout);
         (0, import_node_child_process.exec)(
           `git -C ${projectRoot} branch --show-current`,
           (err2, branchName) => {

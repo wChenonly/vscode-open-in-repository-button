@@ -33,6 +33,7 @@
     "lint": "eslint . --fix",
     "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies",
+    "test": "vitest",
     "pack": "vsce package --no-dependencies",
     "typecheck": "tsc --noEmit",
     "preinstall": "npx only-allow pnpm",
@@ -49,7 +50,8 @@
     "nano-staged": "^0.8.0",
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   },
   "nano-staged": {
     "*.{ts,tsx,js,jsx,vue,less,css,md}": "eslint . --fix"

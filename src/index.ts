@@ -8,6 +8,7 @@ import {
   window,
   workspace,
 } from 'vscode'
+import { normalUrl } from './utils'
 
 export function activate(context: ExtensionContext) {
   if (!workspace.workspaceFolders || workspace.workspaceFolders.length === 0)
@@ -30,11 +31,7 @@ export function activate(context: ExtensionContext) {
           return
         }
 
-        let gitUrl = stdout
-          .replace('.git', '')
-          .replace(':', '/')
-          .replace('git@', 'https://')
-          .trim()
+        let gitUrl = normalUrl(stdout)
 
         exec(
           `git -C ${projectRoot} branch --show-current`,
