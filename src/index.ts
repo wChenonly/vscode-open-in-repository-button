@@ -21,7 +21,7 @@ export function activate(context: ExtensionContext) {
   statusBar.show()
 
   const disposable = commands.registerCommand('openBrowser', async () => {
-    const projectRoot = workspace.workspaceFolders?.[0].uri.path
+    const projectRoot = workspace.workspaceFolders?.[0].uri.fsPath
 
     exec(
       `git -C ${projectRoot} config --get remote.origin.url`,

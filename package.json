@@ -4,7 +4,7 @@
   "displayName": "open-in-repository-button",
   "type": "commonjs",
   "version": "0.0.16",
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@10.13.1",
   "description": "open the git repository button",
   "author": "wChenonly",
   "license": "MIT",
@@ -51,7 +51,7 @@
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.1.0",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.4"
   },
   "nano-staged": {
     "*.{ts,tsx,js,jsx,vue,less,css,md}": "eslint . --fix"

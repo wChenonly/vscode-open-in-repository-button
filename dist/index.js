@@ -43,7 +43,7 @@ function activate(context) {
   statusBar.show();
   const disposable = import_vscode.commands.registerCommand("openBrowser", async () => {
     var _a;
-    const projectRoot = (_a = import_vscode.workspace.workspaceFolders) == null ? void 0 : _a[0].uri.path;
+    const projectRoot = (_a = import_vscode.workspace.workspaceFolders) == null ? void 0 : _a[0].uri.fsPath;
     (0, import_node_child_process.exec)(
       `git -C ${projectRoot} config --get remote.origin.url`,
       (err, stdout) => {
