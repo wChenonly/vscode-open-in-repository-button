@@ -4,7 +4,7 @@
   "displayName": "open-in-repository-button",
   "type": "commonjs",
   "version": "0.0.17",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.19.0",
   "description": "open the git repository button",
   "author": "wChenonly",
   "license": "MIT",
@@ -41,16 +41,15 @@
     "release": "bumpp && nr publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.1",
-    "@rollup/rollup-darwin-arm64": "^4.18.0",
-    "@types/node": "^20.14.5",
+    "@antfu/eslint-config": "^2.27.3",
+    "@types/node": "^20.19.23",
     "@types/vscode": "1.87.0",
-    "@vscode/vsce": "^2.27.0",
-    "bumpp": "^9.4.1",
+    "@vscode/vsce": "^2.32.0",
+    "bumpp": "^9.11.1",
     "nano-staged": "^0.8.0",
-    "simple-git-hooks": "^2.11.1",
-    "tsup": "^8.1.0",
-    "typescript": "^5.4.5",
+    "simple-git-hooks": "^2.13.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
   "nano-staged": {

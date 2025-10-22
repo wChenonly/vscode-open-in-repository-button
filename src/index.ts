@@ -1,6 +1,6 @@
 import { exec } from 'node:child_process'
+import type { ExtensionContext } from 'vscode'
 import {
-  type ExtensionContext,
   StatusBarAlignment,
   Uri,
   commands,
